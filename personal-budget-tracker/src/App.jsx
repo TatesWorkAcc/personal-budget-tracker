@@ -1,9 +1,9 @@
 import React from "react";
-import TransactionForm from "./components/TransactionForm";
+import BudgetTracker from "./components/BudgetTracker";
 function App() {
   return (
     <>
-      <TransactionForm></TransactionForm>
+      <BudgetTracker></BudgetTracker>
     </>
   );
 }
