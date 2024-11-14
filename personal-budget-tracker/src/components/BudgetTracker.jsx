@@ -32,7 +32,6 @@ function BudgetTracker() {
     setTotalIncome((prevTotal) => prevTotal + Number(income));
     setTotalAfterExpenses((prevTotalExp) => prevTotalExp + income);
     setIncome("");
-    // clears income after getting total
     console.log(totalIncome);
   }
 
