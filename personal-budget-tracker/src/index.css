@@ -38,6 +38,9 @@
   background-color: rgb(185, 233, 175);
   transform: scale(1.08);
 }
+.current-income-1{
+  margin-bottom: -5px;
+}
 /* expense container */
 .expense-input-container{
   display: flex;
@@ -89,7 +92,7 @@
   border-radius: 5px;
   background-color: rgb(201, 199, 199);
 }
-.reset-expense{
+.reset-button{
   align-self: center;
   width: 250px;
   border: none;
@@ -99,12 +102,12 @@
   transition: background-color .3s ease;
   margin-top: 25px;
 }
-.reset-expense:hover{
+.reset-button:hover{
   transform: scale(1.03);
   background-color: rgb(197, 100, 100);
   cursor: pointer;
 }
-.reset-expense:active{
+.reset-button:active{
   background-color: rgb(206, 132, 132);
   transform: scale(1.01);
 }

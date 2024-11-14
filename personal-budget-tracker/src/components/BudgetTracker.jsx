@@ -62,6 +62,10 @@ function BudgetTracker() {
     setTotalDebt(0);
     setTotalOther(0);
   }
+  function handleResetIncome(){
+    setTotalAfterExpenses(t => t - totalIncome)
+    setTotalIncome(0)
+  }
 
   function handleAfterExpenses() {
     setTotalAfterExpenses(
@@ -115,7 +119,8 @@ function BudgetTracker() {
         <button onClick={handleTotalIncome} className="income-add-button">
           add
         </button>
-        <h2>Current Income: {totalIncome}$</h2>
+        <h2 className="current-income-1">Current Income: {totalIncome}$</h2>
+        <button onClick={handleResetIncome} className="reset-button">Reset Income</button>
       </div>
       <div className="expense-input-container">
         <h1>Input your expenses</h1>
@@ -191,7 +196,7 @@ function BudgetTracker() {
         <h3 className="data">{totalDebt}$</h3>
         <h2 className="data-label">Other Expenses: </h2>{" "}
         <h3 className="data">{totalOther}$</h3>
-        <button onClick={handleResetExpenses} className="reset-expense">Reset Expenses</button>
+        <button onClick={handleResetExpenses} className="reset-button">Reset Expenses</button>
         <h1 className="total-expenses">Total expenses: </h1>{" "}
         <h2 className="total-expenes-data">{totalExpenses}$</h2>
       </div>
