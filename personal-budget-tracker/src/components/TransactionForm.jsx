@@ -3,53 +3,54 @@ import React, { useState } from "react";
 function TransactionForm() {
 
     const [totalIncome, setTotalIncome] = useState(0)
-    const [income, setIncome] = useState(0)
+    const [income, setIncome] = useState('')
+
 
     const [totalHousing, setTotalHousing] = useState(0)
-    const [housing, setHousing] = useState(0)
+    const [housing, setHousing] = useState('')
 
     const [totalTransportation, setTotalTransportation] = useState(0)
-    const [transportation, setTransportation] = useState(0)
+    const [transportation, setTransportation] = useState('')
 
     const [totalFood, setTotalFood] = useState(0)
-    const [food, setFood] = useState(0)
+    const [food, setFood] = useState('')
 
     const [totalHealthcare, setTotalHealthcare] = useState(0)
-    const [healthcare, setHealthcare] = useState(0)
+    const [healthcare, setHealthcare] = useState('')
 
     const [totalDebt, setTotalDebt] = useState(0)
-    const [debt, setDebt] = useState(0)
+    const [debt, setDebt] = useState('')
 
     const [totalOther, setTotalOther] = useState(0)
-    const [other, setOther] = useState(0)
+    const [other, setOther] = useState('')
 
     const [totalAfterExpenses, setTotalAfterExpenses] = useState(0)
     const [afterExpenses, setAfterExpenses] = useState(0)
 
     function handleTotalIncome(){
-        setTotalIncome(prevTotal => prevTotal + income)
+        setTotalIncome(prevTotal => prevTotal + Number(income))
         setTotalAfterExpenses(prevTotalExp => prevTotalExp + income)
-        setIncome(0)
+        setIncome('')
         // clears income after getting total
         console.log(totalIncome)
     }
 
     function handleAfterExpenses(){
-        setTotalAfterExpenses(prevTotalExp => prevTotalExp - housing - transportation - food - healthcare - debt - other)
+        setTotalAfterExpenses(prevTotalExp => prevTotalExp - Number(housing) - Number(transportation) - Number(food) - Number(healthcare) - Number(debt) - Number(other))
 
-        setTotalHousing(TH => TH + housing)
-        setTotalTransportation(TT => TT + transportation)
-        setTotalFood(TH => TH + food)
-        setTotalHealthcare(TH => TH + healthcare)
-        setTotalDebt(TH => TH + debt)
-        setTotalOther(TH => TH + other)
+        setTotalHousing(TH => TH + Number(housing))
+        setTotalTransportation(TT => TT + Number(transportation))
+        setTotalFood(TH => TH + Number(food))
+        setTotalHealthcare(TH => TH + Number(healthcare))
+        setTotalDebt(TH => TH + Number(debt))
+        setTotalOther(TH => TH + Number(other))
 
-        setHousing(0)
-        setTransportation(0)
-        setFood(0)
-        setHealthcare(0)
-        setDebt(0)
-        setOther(0)
+        setHousing('')
+        setTransportation('')
+        setFood('')
+        setHealthcare('')
+        setDebt('')
+        setOther('')
     }
   
     return(
@@ -59,10 +60,12 @@ function TransactionForm() {
             <input  type="number" 
                     placeholder="Type income here" 
                     value={income}
-                    onChange={(e) => setIncome(Number(e.target.value))}></input>
+                    onChange={(e) => setIncome(Number(e.target.value))}
+                    className="income-add-input"></input>
                     {/* updates income as user types */}
-            <button onClick={handleTotalIncome}>add</button>
-            <h2>Current Income: {totalIncome}</h2>
+            <button onClick={handleTotalIncome}
+                    className="income-add-button">add</button>
+            <h2>Current Income: {totalIncome}$</h2>
         </div>
 
         <div className="expense-input-container">
@@ -115,23 +118,20 @@ function TransactionForm() {
                     onChange={(e) => setOther(Number(e.target.value))}
                     className="expense-input"></input> <br></br>
 
-            <label className="expense">Add all expenses</label>
             <button onClick={handleAfterExpenses}
                     className="expense-button">Add</button>
         </div>
-        <div>
+        <div className="expense-data-container">
             <h1>Expenses data</h1>
-            <h2>Housing: {totalHousing}</h2>
-            <h2>Transportation: {totalTransportation}</h2>
-            <h2>Food: {totalFood}</h2>
-            <h2>Healthcare: {totalHealthcare}</h2>
-            <h2>Debt Payments: {totalDebt}</h2>
-            <h2>Other Expenses: {totalOther}</h2>
+            <h2 className="data-label">Housing: </h2><h3 className="data">{totalHousing}$</h3>
+            <h2 className="data-label">Transportation: </h2> <h3 className="data">{totalTransportation}$</h3>
+            <h2 className="data-label">Food: </h2> <h3 className="data">{totalFood}$</h3>
+            <h2 className="data-label">Healthcare: </h2> <h3 className="data">{totalHealthcare}$</h3>
+            <h2 className="data-label">Debt Payments: </h2> <h3 className="data">{totalDebt}$</h3>
+            <h2 className="data-label">Other Expenses: </h2> <h3 className="data">{totalOther}$</h3>
         </div>
-        <h1>Total income after expenses: {totalAfterExpenses}</h1>
-        <div className="expense-history-container">
-            <h1>Expenses history:</h1>
-        </div>
+        <div className="total-container"></div>
+        <h1 className="total-text">Total income after expenses: </h1> <h2 className="total-data">{totalAfterExpenses}$</h2>
     </div>
     )
 }
