@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   padding: 3%;
-  border: 2px solid black;
+  border: 5px solid rgb(63, 189, 90);
   min-width: 350px;
 }
 /* income container */
@@ -89,6 +89,26 @@
   border-radius: 5px;
   background-color: rgb(201, 199, 199);
 }
+.reset-expense{
+  align-self: center;
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(167, 32, 32);
+  transition: transform .5s ease;
+  transition: background-color .3s ease;
+  margin-top: 25px;
+}
+.reset-expense:hover{
+  transform: scale(1.03);
+  background-color: rgb(197, 100, 100);
+  cursor: pointer;
+}
+.reset-expense:active{
+  background-color: rgb(206, 132, 132);
+  transform: scale(1.01);
+}
+
 .total-expenses{
   display: flex;
   flex-direction: column;
@@ -102,6 +122,18 @@
   background-color: rgb(233, 174, 174);
 }
 /* total container */
+.total-income-end{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: -3px;
+}
+.total-data-end{
+  margin-bottom: -3px;
+  width: 250px;
+  border-radius: 5px;
+  background-color: rgb(176, 233, 174);
+}
 .total-text{
   display: flex;
   flex-direction: column;

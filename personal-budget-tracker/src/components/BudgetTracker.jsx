@@ -36,6 +36,33 @@ function BudgetTracker() {
     console.log(totalIncome);
   }
 
+  function handleResetExpenses(){
+    setTotalExpenses(t => 
+        t -
+        Number(totalHousing) -
+        Number(totalTransportation) -
+        Number(totalFood) -
+        Number(totalHealthcare) -
+        Number(totalDebt) -
+        Number(totalOther),
+    )
+    setTotalAfterExpenses(t => 
+      t +
+      Number(totalHousing) +
+      Number(totalTransportation) +
+      Number(totalFood) +
+      Number(totalHealthcare) +
+      Number(totalDebt) +
+      Number(totalOther),
+  )
+    setTotalHousing(0);
+    setTotalTransportation(0);
+    setTotalFood(0);
+    setTotalHealthcare(0);
+    setTotalDebt(0);
+    setTotalOther(0);
+  }
+
   function handleAfterExpenses() {
     setTotalAfterExpenses(
       (prevTotalExp) =>
@@ -164,10 +191,13 @@ function BudgetTracker() {
         <h3 className="data">{totalDebt}$</h3>
         <h2 className="data-label">Other Expenses: </h2>{" "}
         <h3 className="data">{totalOther}$</h3>
+        <button onClick={handleResetExpenses} className="reset-expense">Reset Expenses</button>
         <h1 className="total-expenses">Total expenses: </h1>{" "}
         <h2 className="total-expenes-data">{totalExpenses}$</h2>
       </div>
       <div className="total-container"></div>
+      <h1 className="total-income-end">Total income:</h1>
+      <h2 className="total-data-end">{totalIncome}$</h2>
       <h1 className="total-text">Total income after expenses: </h1>{" "}
       <h2 className="total-data">{totalAfterExpenses}$</h2>
     </div>
