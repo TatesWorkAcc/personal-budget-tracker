@@ -36,8 +36,9 @@ function BudgetTracker() {
     console.log(totalIncome);
   }
 
-  function handleResetExpenses(){
-    setTotalExpenses(t => 
+  function handleResetExpenses() {
+    setTotalExpenses(
+      (t) =>
         t -
         Number(totalHousing) -
         Number(totalTransportation) -
@@ -45,16 +46,17 @@ function BudgetTracker() {
         Number(totalHealthcare) -
         Number(totalDebt) -
         Number(totalOther),
-    )
-    setTotalAfterExpenses(t => 
-      t +
-      Number(totalHousing) +
-      Number(totalTransportation) +
-      Number(totalFood) +
-      Number(totalHealthcare) +
-      Number(totalDebt) +
-      Number(totalOther),
-  )
+    );
+    setTotalAfterExpenses(
+      (t) =>
+        t +
+        Number(totalHousing) +
+        Number(totalTransportation) +
+        Number(totalFood) +
+        Number(totalHealthcare) +
+        Number(totalDebt) +
+        Number(totalOther),
+    );
     setTotalHousing(0);
     setTotalTransportation(0);
     setTotalFood(0);
@@ -62,9 +64,9 @@ function BudgetTracker() {
     setTotalDebt(0);
     setTotalOther(0);
   }
-  function handleResetIncome(){
-    setTotalAfterExpenses(t => t - totalIncome)
-    setTotalIncome(0)
+  function handleResetIncome() {
+    setTotalAfterExpenses((t) => t - totalIncome);
+    setTotalIncome(0);
   }
 
   function handleAfterExpenses() {
@@ -120,7 +122,9 @@ function BudgetTracker() {
           add
         </button>
         <h2 className="current-income-1">Current Income: {totalIncome}$</h2>
-        <button onClick={handleResetIncome} className="reset-button">Reset Income</button>
+        <button onClick={handleResetIncome} className="reset-button">
+          Reset Income
+        </button>
       </div>
       <div className="expense-input-container">
         <h1>Input your expenses</h1>
@@ -196,7 +200,9 @@ function BudgetTracker() {
         <h3 className="data">{totalDebt}$</h3>
         <h2 className="data-label">Other Expenses: </h2>{" "}
         <h3 className="data">{totalOther}$</h3>
-        <button onClick={handleResetExpenses} className="reset-button">Reset Expenses</button>
+        <button onClick={handleResetExpenses} className="reset-button">
+          Reset Expenses
+        </button>
         <h1 className="total-expenses">Total expenses: </h1>{" "}
         <h2 className="total-expenes-data">{totalExpenses}$</h2>
       </div>
