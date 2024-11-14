@@ -107,6 +107,7 @@ function BudgetTracker() {
 
   return (
     <div className="transactionform-container">
+      {/* Input Income */}
       <div className="income-input-container">
         <h1>Input your income</h1>
         <input
@@ -116,7 +117,6 @@ function BudgetTracker() {
           onChange={(e) => setIncome(Number(e.target.value))}
           className="income-add-input"
         ></input>
-        {/* updates income as user types */}
         <button onClick={handleTotalIncome} className="income-add-button">
           add
         </button>
@@ -125,6 +125,7 @@ function BudgetTracker() {
           Reset Income
         </button>
       </div>
+      {/* Input Expenses */}
       <div className="expense-input-container">
         <h1>Input your expenses</h1>
         <label className="expense">Housing:</label>
@@ -185,6 +186,7 @@ function BudgetTracker() {
           Add
         </button>
       </div>
+      {/* Expenses Data */}
       <div className="expense-data-container">
         <h1>Expenses data</h1>
         <h2 className="data-label">Housing: </h2>
@@ -202,6 +204,7 @@ function BudgetTracker() {
         <button onClick={handleResetExpenses} className="reset-button">
           Reset Expenses
         </button>
+        {/* Total Data */}
         <h1 className="total-expenses">Total expenses: </h1>{" "}
         <h2 className="total-expenes-data">{totalExpenses}$</h2>
       </div>
