@@ -1,3 +1,7 @@
+link to the website  
+
+https://tatesworkacc.github.io/personal-budget-tracker-web/
+  
 Persobal budget tracker  
 This takes an input for income and input for expenses,  
 expenses are added to different categories and subtracts from the total income that was inputed,  
